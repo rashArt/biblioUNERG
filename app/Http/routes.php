@@ -11,6 +11,37 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/login',
+    [
+        'uses' => 'Auth\AuthController@getLogin',
+        'as' => 'login'
+    ]
+);
+
+Route::post('/login',
+    [
+        'uses' => 'Auth\AuthController@postLogin',
+        'as' => 'login'
+    ]
+);
+
+Route::get('/logout',
+    [
+        'uses' => 'Auth\AuthController@getLogout',
+        'as' => 'logout'
+    ]
+);
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/', function () {
+        return redirect('principal');
+    });
+
+    Route::get('/principal',
+        [
+            'uses' => 'DashboardController@principal',
+            'as' => 'principal'
+        ]
+    );
 });

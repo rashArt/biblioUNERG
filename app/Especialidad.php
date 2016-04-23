@@ -17,8 +17,8 @@ class Especialidad extends Model
         return $this->HasMany(Area::class);
     }
 
-    public function tesis(){
+    public function grado(){
 
-        return $this->belongsTo(Tesis::class);
+        return $this->belongsTo(Grado::class);
     }
 }

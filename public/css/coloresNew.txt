@@ -1,0 +1,5 @@
+Login
+
+boton entrar : #0094AE; linea 2843 style.css
+
+color de fondo : #00AECC; azul claro o aguamarina

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tesis extends Model
+class Grado extends Model
 {
-    protected $table = 'tesis';
+    protected $table = 'grado';
 
     protected $fillable = ['titulo', 'autor', 'tutor', 'area_id', 'especialidad_id', 'user_id'];
 
