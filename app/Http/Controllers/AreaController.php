@@ -65,6 +65,7 @@ class AreaController extends Controller
 
     public function delete($id)
     {
+        
         Area::find($id)->delete();
 
         Flash::error('Se ha eliminado el Área exitosamente!');

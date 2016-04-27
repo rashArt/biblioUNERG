@@ -2,7 +2,7 @@
 @section('title', 'Areas')
 @section('content')
 
-<!--outter-wp-->
+  <!--outter-wp-->
   <div class="outter-wp">
     <!--sub-heard-part-->
     <div class="sub-heard-part">
