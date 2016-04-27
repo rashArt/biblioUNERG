@@ -8193,3 +8193,5 @@ footer  p a:hover ,.footer p a:hover{
 	}
 }
 /***responsive***/
+
+.btn-group-xs>.btn,.btn-xs{padding:1px 5px !important;font-size:12px !important;}

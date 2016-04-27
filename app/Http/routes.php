@@ -44,4 +44,36 @@ Route::group(['middleware' => 'auth'], function () {
             'as' => 'principal'
         ]
     );
+
+    /* AREAS */
+        Route::resource('areas', 'AreaController');
+
+        Route::get('areas/{id}/delete','AreaController@delete');
+
+    /* CARGOS */
+        Route::resource('cargos', 'CargoController');
+
+        Route::get('cargos/{id}/delete','CargoController@delete');
+
+    /* ESPECIALIDADES */
+        Route::resource('especialidades', 'EspecialidadController');
+
+        Route::get('especialidades/{id}/delete','EspecialidadController@delete');
+
+    /* TESIS */
+        Route::resource('grados', 'GradoController');
+
+        Route::get('grados/{id}/delete','GradoController@delete');
+
+    /* LIBROS */
+        Route::resource('libros', 'LibroController');
+
+        Route::get('libros/{id}/delete','LibroController@delete');
+
+    /* USER */
+        Route::resource('users', 'UserController');
+
+        Route::get('users/{id}/delete','UserController@delete');
+
+
 });

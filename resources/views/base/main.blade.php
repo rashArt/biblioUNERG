@@ -253,21 +253,43 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <span>Principal</span>
             </a>
           </li>
-          <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> Tabs &amp; Panels</span> <span class="fa fa-angle-right" style="float: right"></span></a>
-            <ul id="menu-academico-sub" >
-              <li id="menu-academico-avaliacoes" ><a href="tabs.html"> Tabs &amp; Panels</a></li>
-              <li id="menu-academico-boletim" ><a href="widget.html">Widgets</a></li>
-              <li id="menu-academico-avaliacoes" ><a href="calender.html">Calender</a></li>
+          <li id="" ><a href="#"><i class="fa fa-file-text-o"></i> <span>Areas</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+            <ul id="-sub" >
+              <li id="" ><a href="{{ route('areas.create') }}">Nuevo</a></li>
+              <li id="" ><a href="{{ route('areas.index') }}">Listado</a></li>
             </ul>
           </li>
-          <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i> <span>Ui Elements</span> <span class="fa fa-angle-right" style="float: right"></span></a>
-            <ul id="menu-academico-sub" >
-              <li id="menu-academico-avaliacoes" ><a href="forms.html">Forms</a></li>
-              <li id="menu-academico-boletim" ><a href="validation.html">Validation Forms</a></li>
-              <li id="menu-academico-boletim" ><a href="table.html">Tables</a></li>
-              <li id="menu-academico-boletim" ><a href="buttons.html">Buttons</a></li>
+          <li id="" ><a href="#"><i class="fa fa-table"></i> <span> Cargos</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+            <ul id="-sub" >
+              <li id="" ><a href="{{ route('cargos.create') }}">Nuevo</a></li>
+              <li id="" ><a href="{{ route('cargos.index') }}">Listado</a></li>
             </ul>
           </li>
+          <li id="" ><a href="#"><i class="fa fa-table"></i> <span> Especialidades</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+            <ul id="-sub" >
+              <li id="" ><a href="{{ route('especialidades.create') }}">Nuevo</a></li>
+              <li id="" ><a href="{{ route('especialidades.index') }}">Listado</a></li>
+            </ul>
+          </li>
+          <li id="" ><a href="#"><i class="fa fa-table"></i> <span> Tesis</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+            <ul id="-sub" >
+              <li id="" ><a href="{{ route('grados.create') }}">Nuevo</a></li>
+              <li id="" ><a href="{{ route('grados.index') }}">Listado</a></li>
+            </ul>
+          </li>
+          <li id="" ><a href="#"><i class="fa fa-table"></i> <span> Libros</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+            <ul id="-sub" >
+              <li id="" ><a href="{{ route('libros.create') }}">Nuevo</a></li>
+              <li id="" ><a href="{{ route('libros.index') }}">Listado</a></li>
+            </ul>
+          </li>
+          <li id="" ><a href="#"><i class="fa fa-file-text-o"></i> <span>Usuarios</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+            <ul id="-sub" >
+              <li id="" ><a href="{{ route('users.create') }}">Nuevo</a></li>
+              <li id="" ><a href="{{ route('users.index') }}">Listado</a></li>
+            </ul>
+          </li>
+          <li><a href=""><i class="fa fa-download"></i>Descargas</a></li>
         </ul>
       </div>
     </div>
