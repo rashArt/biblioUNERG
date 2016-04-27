@@ -58,14 +58,14 @@ class AreaController extends Controller
         $area->nombre = $request->nombre;
         $area->save();
 
-        Flash::success('Se ha editado el área de '.$area->name.' exitosamente!');
+        Flash::success('Se ha editado el área de '.$area->nombre.' exitosamente!');
 
         return redirect()->route('areas.index');
     }
 
     public function delete($id)
     {
-        
+
         Area::find($id)->delete();
 
         Flash::error('Se ha eliminado el Área exitosamente!');

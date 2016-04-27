@@ -14,7 +14,7 @@ class Area extends Model
 
     public function especialidad(){
 
-        return $this->belongsTo(Especialidad::class);
+        return $this->hasMany(Especialidad::class);
     }
 
     public function grado(){

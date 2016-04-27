@@ -12,9 +12,9 @@ class Especialidad extends Model
 
     /* Relaciones */
 
-    public function especialidad(){
+    public function area(){
 
-        return $this->HasMany(Area::class);
+        return $this->belongsTo(Area::class);
     }
 
     public function grado(){

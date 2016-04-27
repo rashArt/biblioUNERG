@@ -5,28 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\EspecialidadCreateRequest;
+use App\Http\Requests\EspecialidadUpdateRequest;
 use App\Http\Controllers\Controller;
+use App\Especialidad;
+use App\Area;
+use Laracasts\Flash\Flash;
 
 class EspecialidadController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $areas = Area::all();
+        $especialidades = Especialidad::orderBy('area_id', 'ASC')->paginate(5);
+
+        return view('especialidades.index')
+            ->with('areas', $areas)
+            ->with('especialidades', $especialidades);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $areas = Area::lists('nombre', 'id');
+
+        return view('especialidades.create')
+            ->with('areas', $areas);
     }
 
     /**
@@ -35,31 +39,31 @@ class EspecialidadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EspecialidadCreateRequest $request)
     {
-        //
+        $especialidad = new Especialidad();
+        $especialidad->nombre = $request->nombre;
+        $especialidad->area_id = $request->area_id;
+        $especialidad->save();
+
+        Flash::success('Se ha registrado la Especialidad '.$request->name.' exitosamente!');
+
+        return redirect()->route('especialidades.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $especialidad = Especialidad::find($id);
+        $areas = Area::lists('nombre', 'id');
+
+        return view('especialidades.edit')
+            ->with('especialidad',$especialidad)
+            ->with('areas', $areas);
     }
 
     /**
@@ -69,9 +73,16 @@ class EspecialidadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EspecialidadUpdateRequest $request, $id)
     {
-        //
+        $especialidad = Especialidad::find($id);
+        $especialidad->nombre = $request->nombre;
+        $especialidad->area_id = $request->area_id;
+        $especialidad->save();
+
+        Flash::success('Se ha editado la Especialidad '.$especialidad->nombre.' exitosamente!');
+
+        return redirect()->route('especialidades.index');
     }
 
     /**
@@ -80,8 +91,12 @@ class EspecialidadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        Especialidad::find($id)->delete();
+
+        Flash::error('Se ha eliminado la Especialidad exitosamente!');
+
+        return redirect()->route('especialidades.index');
     }
 }
