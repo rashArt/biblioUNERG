@@ -7,17 +7,25 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Grado;
+use App\Libro;
+use App\Cargo;
 
 class DashboardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function principal()
     {
-        return view('principal');
+        $libros = Libro::count('id');
+        $tesis = Grado::count('id');
+        $asistentes = User::where('cargo_id',1)->count();
+        $moderadores = User::where('cargo_id',3)->count();
+
+        return view('principal')
+            ->with('libros', $libros)
+            ->with('tesis', $tesis)
+            ->with('asistentes', $asistentes)
+            ->with('moderadores', $moderadores);
     }
 
     /**

@@ -18,40 +18,40 @@
         <div class="col-md-3 widget">
           <div class="stats-left ">
             <h5>Trabajos de Grado</h5>
-            <h4><i class="fa fa-graduation-cap"></i></h4>
+            <a href="{{route('grados.index')}}"><h4><i class="fa fa-graduation-cap"></i></h4></a>
           </div>
           <div class="stats-right">
-            <label>90</label>
+            <label>{{$tesis}}</label>
           </div>
           <div class="clearfix"> </div>
         </div>
         <div class="col-md-3 widget states-mdl">
           <div class="stats-left">
             <h5>Asistentes</h5>
-            <a href=""><h4><i class="fa fa-user-plus"></i></h4></a>
+            <a href="{{route('users.index')}}"><h4><i class="fa fa-user-plus"></i></h4></a>
           </div>
           <div class="stats-right">
-            <label>51</label>
+            <label>{{$asistentes}}</label>
           </div>
           <div class="clearfix"> </div>
         </div>
         <div class="col-md-3 widget states-thrd">
           <div class="stats-left">
             <h5>Libros</h5>
-            <h4><i class="fa fa-book"></i></h4>
+            <a href="{{route('libros.index')}}"><h4><i class="fa fa-book"></i></h4></a>
           </div>
           <div class="stats-right">
-            <label> 85</label>
+            <label>{{$libros}}</label>
           </div>
           <div class="clearfix"> </div>
         </div>
         <div class="col-md-3 widget states-last">
           <div class="stats-left">
             <h5>Moderadores</h5>
-            <h4><i class="fa fa-user"></i></h4>
+            <a href="{{route('users.index')}}"><h4><i class="fa fa-user"></i></h4></a>
           </div>
           <div class="stats-right">
-            <label>30</label>
+            <label>{{$moderadores}}</label>
           </div>
           <div class="clearfix"> </div>
         </div>

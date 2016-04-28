@@ -61,3 +61,16 @@
   <!--//outer-wp-->
 
 @stop
+
+@section('js')
+<script>
+  $("#area").change(event => {
+    $.get(`/especialidad/${event.target.value}`, function(res, sta){
+        $("#especialidad").empty();
+        res.forEach(element => {
+            $("#especialidad").append(`<option value=${element.id}>${element.nombre}</option>`);
+        });
+    });
+});
+</script>
+@stop

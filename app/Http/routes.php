@@ -62,7 +62,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     /* TESIS */
         Route::get('especialidad/{id}', 'GradoController@getSelect');
-        
+
         Route::resource('grados', 'GradoController');
 
         Route::get('grados/{id}/delete','GradoController@delete');

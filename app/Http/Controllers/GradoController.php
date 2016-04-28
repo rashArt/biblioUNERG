@@ -30,6 +30,7 @@ class GradoController extends Controller
     public function create()
     {
         $areas = Area::lists('nombre', 'id');
+        // alternativa a placeholder dentro del select
         $areas->prepend('-- Seleccionar --', 0);
         $especialidades = Especialidad::lists('nombre', 'id');
 
