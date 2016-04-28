@@ -22,4 +22,8 @@ class Especialidad extends Model
         return $this->hasMany(Grado::class);
     }
 
+    public static function especialidad($id){
+      return Especialidad::where('area_id', $id)->get();
+    }
+
 }

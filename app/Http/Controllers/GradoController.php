@@ -30,11 +30,19 @@ class GradoController extends Controller
     public function create()
     {
         $areas = Area::lists('nombre', 'id');
+        $areas->prepend('-- Seleccionar --', 0);
         $especialidades = Especialidad::lists('nombre', 'id');
 
         return view('grados.create')
             ->with('areas', $areas)
             ->with('especialidades', $especialidades);
+    }
+
+    public function getSelect(Request $request, $id){
+        if ($request->ajax()) {
+            $especialidades = Especialidad::especialidad($id);
+            return response()->json($especialidades);
+        }
     }
 
     public function store(GradoCreateRequest $request)

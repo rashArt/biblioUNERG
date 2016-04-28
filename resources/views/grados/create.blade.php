@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
               {!! Form::label('especialidad', 'Seleccione Especialidad') !!}
-              {!! Form::select('especialidad_id', $especialidades, null, ['id' => 'especialidad', 'class' => 'form-control1']) !!}
+              {!! Form::select('especialidad_id', ['0'=>'selecciona'], null, ['id' => 'especialidad', 'class' => 'form-control1']) !!}
             </div>
 
             <button type="submit" class="btn blue">Guardar</button>
@@ -61,4 +61,16 @@
   </div>
   <!--//outer-wp-->
 
+@stop
+@section('js')
+<script>
+  $("#area").change(event => {
+    $.get(`/especialidad/${event.target.value}`, function(res, sta){
+        $("#especialidad").empty();
+        res.forEach(element => {
+            $("#especialidad").append(`<option value=${element.id}>${element.nombre}</option>`);
+        });
+    });
+});
+</script>
 @stop
