@@ -2,8 +2,7 @@
 @section('title', 'Registrar Especialidad')
 @section('content')
 
-
-<!--outter-wp-->
+  <!--outter-wp-->
   <div class="outter-wp">
     <!--sub-heard-part-->
     <div class="sub-heard-part">

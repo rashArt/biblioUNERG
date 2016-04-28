@@ -47,11 +47,11 @@ class User extends Model implements AuthenticatableContract,
 
     public function grado(){
 
-        return $this->belongsTo(Grado::class);
+        return $this->hasMany(Grado::class);
     }
 
     public function libro(){
 
-        return $this->belongsTo(Libro::class);
+        return $this->hasMany(Libro::class);
     }
 }

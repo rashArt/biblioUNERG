@@ -19,6 +19,7 @@ class Especialidad extends Model
 
     public function grado(){
 
-        return $this->belongsTo(Grado::class);
+        return $this->hasMany(Grado::class);
     }
+
 }

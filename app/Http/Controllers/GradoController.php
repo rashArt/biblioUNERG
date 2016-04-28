@@ -3,85 +3,101 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
+use App\Http\Requests\GradoCreateRequest;
+use App\Http\Requests\GradoUpdateRequest;
 use App\Http\Controllers\Controller;
+use App\Grado;
+use App\User;
+use App\Area;
+use App\Especialidad;
+use Laracasts\Flash\Flash;
 
 class GradoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //tesis sera la variable a utilizar dentro del controlador
+
     public function index()
     {
-        //
+        $tesis = Grado::orderBy('titulo', 'ASC')->paginate(10);
+
+        return view('grados.index')
+            ->with('tesis', $tesis);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $areas = Area::lists('nombre', 'id');
+        $especialidades = Especialidad::lists('nombre', 'id');
+
+        return view('grados.create')
+            ->with('areas', $areas)
+            ->with('especialidades', $especialidades);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(GradoCreateRequest $request)
     {
-        //
+        /* usuario logueado */
+        $id_logueado = Auth::user()->id;
+
+        /* registro */
+        $tesis = new Grado();
+        $tesis->titulo = $request->titulo;
+        $tesis->autor = $request->autor;
+        $tesis->tutor = $request->tutor;
+        $tesis->area_id = $request->area_id;
+        $tesis->especialidad_id = $request->especialidad_id;
+        $tesis->user_id = $id_logueado;
+        $tesis->save();
+
+        Flash::success('Se ha registrado la Tesis exitosamente!');
+
+        return redirect()->route('grados.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $tesis = Grado::find($id);
+
+        return view('grados.show')
+            ->with('tesis', $tesis);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $tesis = Grado::find($id);
+        $areas = Area::lists('nombre', 'id');
+        $especialidades = Especialidad::lists('nombre', 'id');
+
+        return view('grados.edit')
+            ->with('areas', $areas)
+            ->with('especialidades', $especialidades)
+            ->with('tesis', $tesis);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(GradoUpdateRequest $request, $id)
     {
-        //
+        $tesis = Grado::find($id);
+        $tesis->titulo = $request->titulo;
+        $tesis->autor = $request->autor;
+        $tesis->tutor = $request->tutor;
+        $tesis->area_id = $request->area_id;
+        $tesis->especialidad_id = $request->especialidad_id;
+        $tesis->save();
+
+        Flash::success('Se ha editado la Tesis exitosamente!');
+
+        return redirect()->route('grados.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        Grado::find($id)->delete();
+
+        Flash::error('Se ha eliminado la Tesis exitosamente!');
+
+        return redirect()->route('grados.index');
     }
 }

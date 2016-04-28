@@ -20,7 +20,7 @@ class CreateLibrosTable extends Migration
             $table->string('autor');
             $table->string('editorial');
             $table->enum('idioma', ['Espanol','Ingles','Frances'])->default('Espanol');
-            $table->date('ano_edicion');
+            $table->integer('ano_edicion'); //cambiar en phpmyadmin a tipo year
             $table->integer('ejemplares');
             $table->integer('user_id')->unsigned();
             $table->timestamps();

@@ -33,12 +33,6 @@ class EspecialidadController extends Controller
             ->with('areas', $areas);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(EspecialidadCreateRequest $request)
     {
         $especialidad = new Especialidad();
@@ -66,13 +60,6 @@ class EspecialidadController extends Controller
             ->with('areas', $areas);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(EspecialidadUpdateRequest $request, $id)
     {
         $especialidad = Especialidad::find($id);
@@ -85,12 +72,6 @@ class EspecialidadController extends Controller
         return redirect()->route('especialidades.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function delete($id)
     {
         Especialidad::find($id)->delete();
@@ -99,4 +80,5 @@ class EspecialidadController extends Controller
 
         return redirect()->route('especialidades.index');
     }
+
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Grado extends Model
 {
-    protected $table = 'grado';
+    protected $table = 'grados';
 
     protected $fillable = ['titulo', 'autor', 'tutor', 'area_id', 'especialidad_id', 'user_id'];
 
@@ -14,16 +14,16 @@ class Grado extends Model
 
     public function user(){
 
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function area(){
 
-        return $this->hasMany(Area::class);
+        return $this->belongsTo(Area::class);
     }
 
     public function especialidad(){
 
-        return $this->hasMany(Especialidad::class);
+        return $this->belongsTo(Especialidad::class);
     }
 }
