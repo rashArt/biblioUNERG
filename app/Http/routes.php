@@ -45,21 +45,6 @@ Route::group(['middleware' => 'auth'], function () {
         ]
     );
 
-    /* AREAS */
-        Route::resource('areas', 'AreaController');
-
-        Route::get('areas/{id}/delete','AreaController@delete');
-
-    /* CARGOS */
-        Route::resource('cargos', 'CargoController');
-
-        Route::get('cargos/{id}/delete','CargoController@delete');
-
-    /* ESPECIALIDADES */
-        Route::resource('especialidades', 'EspecialidadController');
-
-        Route::get('especialidades/{id}/delete','EspecialidadController@delete');
-
     /* TESIS */
         Route::get('especialidad/{id}', 'GradoController@getSelect');
 
@@ -72,10 +57,26 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('libros/{id}/delete','LibroController@delete');
 
-    /* USER */
-        Route::resource('users', 'UserController');
 
-        Route::get('users/{id}/delete','UserController@delete');
+    Route::group(['middleware' => 'admin'], function () {
+        /* AREAS */
+            Route::resource('areas', 'AreaController');
 
+            Route::get('areas/{id}/delete','AreaController@delete');
+
+        /* CARGOS */
+            Route::resource('cargos', 'CargoController');
+
+            Route::get('cargos/{id}/delete','CargoController@delete');
+
+        /* ESPECIALIDADES */
+            Route::resource('especialidades', 'EspecialidadController');
+
+            Route::get('especialidades/{id}/delete','EspecialidadController@delete');
+        /* USER */
+            Route::resource('users', 'UserController');
+
+            Route::get('users/{id}/delete','UserController@delete');
+    });
 
 });

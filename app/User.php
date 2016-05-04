@@ -54,4 +54,10 @@ class User extends Model implements AuthenticatableContract,
 
         return $this->hasMany(Libro::class);
     }
+
+    /* validando si es administrador para uso del middleware */
+    public function admin()
+    {
+        return $this->cargo->nombre === "Administrador";
+    }
 }

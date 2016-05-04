@@ -254,6 +254,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <span>Principal</span>
             </a>
           </li>
+          @if (Auth::user()->admin())
           <li id="" ><a href="#"><i class="fa fa-circle-o"></i> <span>Areas</span> <span class="fa fa-angle-right" style="float: right"></span></a>
             <ul id="-sub" >
               <li id="" ><a href="{{ route('areas.create') }}">Nuevo</a></li>
@@ -272,6 +273,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <li id="" ><a href="{{ route('especialidades.index') }}">Listado</a></li>
             </ul>
           </li>
+          @endif
           <li id="" ><a href="#"><i class="fa fa-graduation-cap"></i> <span> Tesis</span> <span class="fa fa-angle-right" style="float: right"></span></a>
             <ul id="-sub" >
               <li id="" ><a href="{{ route('grados.create') }}">Nuevo</a></li>
@@ -284,12 +286,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <li id="" ><a href="{{ route('libros.index') }}">Listado</a></li>
             </ul>
           </li>
+          @if (Auth::user()->admin())
           <li id="" ><a href="#"><i class="fa fa-users"></i> <span>Usuarios</span> <span class="fa fa-angle-right" style="float: right"></span></a>
             <ul id="-sub" >
               <li id="" ><a href="{{ route('users.create') }}">Nuevo</a></li>
               <li id="" ><a href="{{ route('users.index') }}">Listado</a></li>
             </ul>
           </li>
+          @endif
           <li><a href=""><i class="fa fa-download"></i>Descargas</a></li>
           <li><a href=""><i class="fa fa-file-pdf-o"></i>Manual</a></li>
         </ul>
