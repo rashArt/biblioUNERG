@@ -261,10 +261,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <li id="" ><a href="{{ route('areas.index') }}">Listado</a></li>
             </ul>
           </li>
+          <li id="" ><a href="#"><i class="fa fa-circle-o"></i> <span>Autores</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+            <ul id="-sub" >
+              <li id="" ><a href="{{ route('autores.create') }}">Nuevo</a></li>
+              <li id="" ><a href="{{ route('autores.index') }}">Listado</a></li>
+            </ul>
+          </li>
           <li id="" ><a href="#"><i class="fa fa-angle-double-up"></i> <span> Cargos</span> <span class="fa fa-angle-right" style="float: right"></span></a>
             <ul id="-sub" >
               <li id="" ><a href="{{ route('cargos.create') }}">Nuevo</a></li>
               <li id="" ><a href="{{ route('cargos.index') }}">Listado</a></li>
+            </ul>
+          </li>
+          <li id="" ><a href="#"><i class="fa fa-tag"></i> <span> Editoriales</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+            <ul id="-sub" >
+              <li id="" ><a href="{{ route('editoriales.create') }}">Nuevo</a></li>
+              <li id="" ><a href="{{ route('editoriales.index') }}">Listado</a></li>
             </ul>
           </li>
           <li id="" ><a href="#"><i class="fa fa-tag"></i> <span> Especialidades</span> <span class="fa fa-angle-right" style="float: right"></span></a>

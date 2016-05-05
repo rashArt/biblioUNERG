@@ -10,6 +10,8 @@ use App\Http\Requests\LibroCreateRequest;
 use App\Http\Requests\LibroUpdateRequest;
 use App\Http\Controllers\Controller;
 use App\Libro;
+use App\Autor;
+use App\Editorial;
 use Laracasts\Flash\Flash;
 
 class LibroController extends Controller
@@ -25,7 +27,12 @@ class LibroController extends Controller
 
     public function create()
     {
-        return view('libros.create');
+        $autores = Autor::lists('nombre', 'id');
+        $editoriales = Editorial::lists('nombre', 'id');
+
+        return view('libros.create')
+            ->with('autores', $autores)
+            ->with('editoriales', $editoriales);
     }
 
     public function store(LibroCreateRequest $request)
@@ -38,8 +45,8 @@ class LibroController extends Controller
         $libro->isbn = $request->isbn;
         $libro->titulo = $request->titulo;
         $libro->descripcion = $request->descripcion;
-        $libro->editorial = $request->editorial;
-        $libro->autor = $request->autor;
+        $libro->editorial_id = $request->editorial_id;
+        $libro->autor_id = $request->autor_id;
         $libro->ano_edicion = $request->ano_edicion;
         $libro->ejemplares = $request->ejemplares;
         $libro->user_id = $id_logueado;
@@ -71,8 +78,8 @@ class LibroController extends Controller
         $libro->isbn = $request->isbn;
         $libro->titulo = $request->titulo;
         $libro->descripcion = $request->descripcion;
-        $libro->editorial = $request->editorial;
-        $libro->autor = $request->autor;
+        $libro->editorial_id = $request->editorial_id;
+        $libro->autor_id = $request->autor_id;
         $libro->ano_edicion = $request->ano_edicion;
         $libro->ejemplares = $request->ejemplares;
         $libro->save();

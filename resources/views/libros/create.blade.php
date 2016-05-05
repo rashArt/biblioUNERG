@@ -47,12 +47,12 @@
               {!! Form::text('descripcion', null, ['class' => 'form-control1']) !!}
             </div>
             <div class="form-group">
-              {!! Form::label('editorial', 'Editorial') !!}
-              {!! Form::text('editorial', null, ['class' => 'form-control1']) !!}
+              {!! Form::label('editorial', 'Seleccione Editorial') !!}
+              {!! Form::select('editorial_id', $editoriales, null, ['class' => 'form-control1']) !!}
             </div>
             <div class="form-group">
-              {!! Form::label('autor', 'Autor') !!}
-              {!! Form::text('autor', null, ['class' => 'form-control1']) !!}
+              {!! Form::label('autor', 'Seleccione Autor') !!}
+              {!! Form::select('autor_id', $autores, null, ['class' => 'form-control1']) !!}
             </div>
             <div class="form-group">
               {!! Form::label('idioma', 'Seleccione Idioma') !!}

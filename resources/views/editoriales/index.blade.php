@@ -1,48 +1,43 @@
 @extends('base.main')
-@section('title', 'Libros')
+@section('title', 'Cargos')
 @section('content')
 
-<!--outter-wp-->
+
+  <!--outter-wp-->
   <div class="outter-wp">
     <!--sub-heard-part-->
     <div class="sub-heard-part">
       <ol class="breadcrumb m-b-0">
         <li><a href="{{ route('principal') }}">Principal</a></li>
-        <li class="active">Libros</li>
+        <li class="active">Cargos</li>
       </ol>
     </div>
 
     <div class="graph-visual tables-main">
-      <h2 class="inner-tittle">Listado de Libros</h2>
+      <h2 class="inner-tittle">Listado de Cargos</h2>
       @include('flash::message')
       <div class="graph">
         <div class="tables">
-          @if(count($libros) > 0)
+          @if(count($cargos) > 0)
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th>Titulo</th>
-                  <th>Editorial</th>
-                  <th>Autor</th>
+                  <th>Área</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($libros as $libro)
+                @foreach($cargos as $cargo)
                 <tr>
-                  <td>{{ $libro->titulo }}</td>
-                  <td>{{ $libro->editorial->nombre }}</td>
-                  <td>{{ $libro->autor->nombre }}</td>
+                  <td>{{ $cargo->nombre }}</td>
                   <td>
                     <div class="btn-group">
 
-                      <a href="{{ URL::to('libros/' . $libro->id ) }}" class="btn btn-success btn-xs"><i class="fa fa-eye"></i> Ver</a>
+                      <a href="{{ URL::to('cargos/' . $cargo->id . '/edit') }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
 
-                      <a href="{{ URL::to('libros/' . $libro->id . '/edit') }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
-
-                      <button type="button" class="btn btn-danger  btn-flat btn-xs" data-toggle="modal" data-target="#del{!!$libro->id!!}"><i class="fa fa-trash"></i> Eliminar</button>
+                      {{--<button type="button" class="btn btn-danger  btn-flat btn-xs" data-toggle="modal" data-target="#del{!!$cargo->id!!}"><i class="fa fa-trash"></i> Eliminar</button>
                       <!-- Modal -->
-                      <div class="modal fade" id="del{!!$libro->id!!}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal fade" id="del{!!$cargo->id!!}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -54,11 +49,11 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn green pull-right" data-dismiss="modal">Cancelar</button>
-                              <a href="libros/{{$libro->id}}/delete" class="btn red">Eliminar <i class="icon-trash"></i></a>
+                              <a href="cargos/{{$cargo->id}}/delete" class="btn red">Eliminar <i class="icon-trash"></i></a>
                             </div>
                           </div>
                         </div>
-                      </div> <!-- / Modal -->
+                      </div> <!-- / Modal --> --}}
                     </div>
                   </td>
                 </tr>
@@ -68,7 +63,7 @@
           @else
             <h3>No hay registros</h3>
           @endif
-          {!! $libros->render() !!}
+          {!! $cargos->render() !!}
         </div>
       </div>
       <!--//graph-visual-->

@@ -24,13 +24,13 @@ class LibroCreateRequest extends Request
     public function rules()
     {
         return [
-            'isbn' => 'required|unique:libros',
-            'titulo' => 'required',
-            'descripcion' => 'required',
-            'editorial' => 'required',
-            'autor' => 'required',
-            'ano_edicion' => 'required',
-            'ejemplares' => 'required'
+            'isbn'         => 'required|unique:libros',
+            'titulo'       => 'required',
+            'descripcion'  => 'required',
+            'editorial_id' => 'required',
+            'autor_id'     => 'required',
+            'ano_edicion'  => 'required',
+            'ejemplares'   => 'required'
         ];
     }
 }
