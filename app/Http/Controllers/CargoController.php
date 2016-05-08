@@ -33,7 +33,7 @@ class CargoController extends Controller
         $cargo->nombre = $request->nombre;
         $cargo->save();
 
-        Flash::success('Se ha registrado el cargo '.$request->name.' exitosamente!');
+        Flash::success('Se ha registrado el cargo '.$request->nombre.' exitosamente!');
 
         return redirect()->route('cargos.index');
     }

@@ -19,10 +19,10 @@ class Libro extends Model
 
     public function autor(){
 
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Autor::class);
     }
     public function editorial(){
 
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Editorial::class);
     }
 }

@@ -67,9 +67,13 @@ class LibroController extends Controller
     public function edit($id)
     {
         $libro = Libro::find($id);
+        $editoriales = Editorial::lists('nombre', 'id');
+        $autores = Autor::lists('nombre', 'id');
 
         return view('libros.edit')
-            ->with('libro', $libro);
+            ->with('libro', $libro)
+            ->with('editoriales', $editoriales)
+            ->with('autores', $autores);
     }
 
     public function update(LibroUpdateRequest $request, $id)

@@ -33,7 +33,7 @@ class AutorController extends Controller
         $autor->nombre = $request->nombre;
         $autor->save();
 
-        Flash::success('Se ha registrado el autor '.$request->name.' exitosamente!');
+        Flash::success('Se ha registrado el autor '.$request->nombre.' exitosamente!');
 
         return redirect()->route('autores.index');
     }

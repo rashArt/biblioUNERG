@@ -30,7 +30,7 @@
 
       <div class="graph-form">
         <div class="form-body">
-          {!! Form::open(['route' => 'cargos.store', 'method' =>'POST']) !!}
+          {!! Form::open(['route' => 'autores.store', 'method' =>'POST']) !!}
             <div class="form-group">
               <label for="">Ingrese Nombre del Cargo</label>
               <input type="text" name="nombre" class="form-control1">

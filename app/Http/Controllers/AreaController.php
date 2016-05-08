@@ -34,7 +34,7 @@ class AreaController extends Controller
         $area->nombre = $request->nombre;
         $area->save();
 
-        Flash::success('Se ha registrado el área '.$request->name.' exitosamente!');
+        Flash::success('Se ha registrado el área '.$request->nombre.' exitosamente!');
 
         return redirect()->route('areas.index');
     }

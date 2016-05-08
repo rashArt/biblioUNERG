@@ -21,6 +21,7 @@
             <table class="table table-bordered">
               <thead>
                 <tr>
+                  <td>ISBN</td>
                   <th>Titulo</th>
                   <th>Editorial</th>
                   <th>Autor</th>
@@ -30,6 +31,7 @@
               <tbody>
                 @foreach($libros as $libro)
                 <tr>
+                  <td>{{ $libro->isbn }}</td>
                   <td>{{ $libro->titulo }}</td>
                   <td>{{ $libro->editorial->nombre }}</td>
                   <td>{{ $libro->autor->nombre }}</td>

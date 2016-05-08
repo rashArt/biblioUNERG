@@ -40,7 +40,7 @@ class EspecialidadController extends Controller
         $especialidad->area_id = $request->area_id;
         $especialidad->save();
 
-        Flash::success('Se ha registrado la Especialidad '.$request->name.' exitosamente!');
+        Flash::success('Se ha registrado la Especialidad '.$request->nombre.' exitosamente!');
 
         return redirect()->route('especialidades.index');
     }

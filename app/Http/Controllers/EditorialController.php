@@ -5,83 +5,64 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\EditorialCreateRequest;
+use App\Http\Requests\EditorialUpdateRequest;
 use App\Http\Controllers\Controller;
+use App\Editorial;
+use Laracasts\Flash\Flash;
 
 class EditorialController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $editoriales = Editorial::orderBy('nombre', 'ASC')->paginate(5);
+
+        return view('editoriales.index')
+            ->with('editoriales', $editoriales);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('editoriales.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(EditorialCreateRequest $request)
     {
-        //
+        $editorial = new Editorial();
+        $editorial->nombre = $request->nombre;
+        $editorial->save();
+
+        Flash::success('Se ha registrado el editorial '.$request->nombre.' exitosamente!');
+
+        return redirect()->route('editoriales.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $editorial = Editorial::find($id);
+
+        return view('editoriales.edit')
+            ->with('editorial',$editorial);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(EditorialUpdateRequest $request, $id)
     {
-        //
+        $editorial = Editorial::find($id);
+        $editorial->nombre = $request->nombre;
+        $editorial->save();
+
+        Flash::success('Se ha editado el editorial de '.$editorial->name.' exitosamente!');
+
+        return redirect()->route('editoriales.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        Editorial::find($id)->delete();
+
+        Flash::error('Se ha eliminado el editorial exitosamente!');
+
+        return redirect()->route('editoriales.index');
     }
 }

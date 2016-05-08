@@ -1,5 +1,5 @@
 @extends('base.main')
-@section('title', 'Editar Cargo')
+@section('title', 'Editar Autor')
 @section('content')
 
 
@@ -9,13 +9,13 @@
     <div class="sub-heard-part">
       <ol class="breadcrumb m-b-0">
         <li><a href="{{ route('principal') }}">Principal</a></li>
-        <li><a href="{{ route('cargos.index') }}">Cargos</a></li>
+        <li><a href="{{ route('cargos.index') }}">Autores</a></li>
         <li class="active">Editar</li>
       </ol>
     </div>
     <!--/forms-->
     <div class="forms-main">
-      <h2 class="inner-tittle">Editar Cargo</h2>
+      <h2 class="inner-tittle">Editar Autor</h2>
 
       @if(count($errors) > 0)
         <div class="alert alert-danger alert-dismissible" role="alert">
@@ -30,7 +30,7 @@
 
       <div class="graph-form">
         <div class="form-body">
-          {!! Form::model($cargo, array('route' => array('cargos.update', $cargo->id), 'method' => 'PUT')) !!}
+          {!! Form::model($autor, array('route' => array('autores.update', $autor->id), 'method' => 'PUT')) !!}
             <div class="form-group">
               <label for="">Ingrese Nombre del Cargo</label>
               {!! Form::text('nombre', null, ['class' => 'form-control1']) !!}

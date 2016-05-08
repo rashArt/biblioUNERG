@@ -48,11 +48,11 @@
             </div>
             <div class="form-group">
               {!! Form::label('editorial', 'Editorial') !!}
-              {!! Form::text('editorial', null, ['class' => 'form-control1']) !!}
+              {!! Form::select('editorial', $editoriales, null, ['class' => 'form-control1']) !!}
             </div>
             <div class="form-group">
               {!! Form::label('autor', 'Autor') !!}
-              {!! Form::text('autor', null, ['class' => 'form-control1']) !!}
+              {!! Form::select('autor', $autores, null, ['class' => 'form-control1']) !!}
             </div>
             <div class="form-group">
               {!! Form::label('idioma', 'Seleccione Idioma') !!}

@@ -12,7 +12,7 @@ class Editorial extends Model
 
     /* Relaciones */
 
-    public function grado(){
+    public function libro(){
 
         return $this->hasMany(Libro::class);
     }

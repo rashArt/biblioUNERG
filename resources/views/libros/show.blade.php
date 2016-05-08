@@ -33,12 +33,12 @@
             <div class="about-info-p">
               <strong>Autor</strong>
               <br>
-              <p class="text-muted">{{ $libro->autor }}</p>
+              <p class="text-muted">{{ $libro->autor->nombre }}</p>
             </div>
             <div class="about-info-p">
               <strong>Editorial</strong>
               <br>
-              <p class="text-muted">{{ $libro->editorial }}</p>
+              <p class="text-muted">{{ $libro->editorial->nombre }}</p>
             </div>
             <div class="about-info-p">
               <strong>Año de Edición</strong>
