@@ -1,5 +1,5 @@
 @extends('base.main')
-@section('title', 'Ver Libros')
+@section('title', 'Ver Textos')
 @section('content')
 
 <!--outter-wp-->
@@ -8,7 +8,7 @@
     <div class="sub-heard-part">
       <ol class="breadcrumb m-b-0">
         <li><a href="{{ route('principal') }}">Principal</a></li>
-        <li><a href="{{ route('libros.index') }}">Libros</a></li>
+        <li><a href="{{ route('libros.index') }}">Textos</a></li>
         <li class="active">Ver</li>
       </ol>
     </div>

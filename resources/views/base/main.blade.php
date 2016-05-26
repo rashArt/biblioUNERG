@@ -235,7 +235,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
       <!--/down-->
       <div class="down">
-        <a href="index.html">
+        <a href="{{ route('principal') }}">
           <span class=" name-caret">
             {{Auth::user()->nombres}} {{Auth::user()->apellidos}}
           </span>
@@ -254,7 +254,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <span>Principal</span>
             </a>
           </li>
-          @if (Auth::user()->admin())
           <li id="" ><a href="#"><i class="fa fa-circle-o"></i> <span>Areas</span> <span class="fa fa-angle-right" style="float: right"></span></a>
             <ul id="-sub" >
               <li id="" ><a href="{{ route('areas.create') }}">Nuevo</a></li>
@@ -265,12 +264,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <ul id="-sub" >
               <li id="" ><a href="{{ route('autores.create') }}">Nuevo</a></li>
               <li id="" ><a href="{{ route('autores.index') }}">Listado</a></li>
-            </ul>
-          </li>
-          <li id="" ><a href="#"><i class="fa fa-angle-double-up"></i> <span> Cargos</span> <span class="fa fa-angle-right" style="float: right"></span></a>
-            <ul id="-sub" >
-              <li id="" ><a href="{{ route('cargos.create') }}">Nuevo</a></li>
-              <li id="" ><a href="{{ route('cargos.index') }}">Listado</a></li>
             </ul>
           </li>
           <li id="" ><a href="#"><i class="fa fa-tag"></i> <span> Editoriales</span> <span class="fa fa-angle-right" style="float: right"></span></a>
@@ -285,20 +278,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
               <li id="" ><a href="{{ route('especialidades.index') }}">Listado</a></li>
             </ul>
           </li>
-          @endif
           <li id="" ><a href="#"><i class="fa fa-graduation-cap"></i> <span> Tesis</span> <span class="fa fa-angle-right" style="float: right"></span></a>
             <ul id="-sub" >
               <li id="" ><a href="{{ route('grados.create') }}">Nuevo</a></li>
               <li id="" ><a href="{{ route('grados.index') }}">Listado</a></li>
             </ul>
           </li>
-          <li id="" ><a href="#"><i class="fa fa-book"></i> <span> Libros</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+          <li id="" ><a href="#"><i class="fa fa-book"></i> <span> Texto</span> <span class="fa fa-angle-right" style="float: right"></span></a>
             <ul id="-sub" >
               <li id="" ><a href="{{ route('libros.create') }}">Nuevo</a></li>
               <li id="" ><a href="{{ route('libros.index') }}">Listado</a></li>
             </ul>
           </li>
           @if (Auth::user()->admin())
+          <li id="" ><a href="#"><i class="fa fa-angle-double-up"></i> <span> Cargos</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+            <ul id="-sub" >
+              <li id="" ><a href="{{ route('cargos.create') }}">Nuevo</a></li>
+              <li id="" ><a href="{{ route('cargos.index') }}">Listado</a></li>
+            </ul>
+          </li>
           <li id="" ><a href="#"><i class="fa fa-users"></i> <span>Usuarios</span> <span class="fa fa-angle-right" style="float: right"></span></a>
             <ul id="-sub" >
               <li id="" ><a href="{{ route('users.create') }}">Nuevo</a></li>

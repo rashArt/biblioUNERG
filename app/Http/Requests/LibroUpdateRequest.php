@@ -24,9 +24,13 @@ class LibroUpdateRequest extends Request
     public function rules()
     {
         return [
-            'isbn'         => 'required',
             'titulo'       => 'required',
             'descripcion'  => 'required',
+            'clasificacion' => 'required',
+            'pie'           => 'required',
+            'nota'          => 'required',
+            'serie'         => 'required',
+            'fisica'        => 'required',
             'editorial_id' => 'required',
             'autor_id'     => 'required',
             'ano_edicion'  => 'required',

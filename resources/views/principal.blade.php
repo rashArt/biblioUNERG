@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-3 widget states-mdl">
           <div class="stats-left">
-            <h5>Asistentes</h5>
+            <h5>Transcriptores</h5>
             <a href="{{route('users.index')}}"><h4><i class="fa fa-user-plus"></i></h4></a>
           </div>
           <div class="stats-right">
@@ -47,7 +47,7 @@
         </div>
         <div class="col-md-3 widget states-last">
           <div class="stats-left">
-            <h5>Moderadores</h5>
+            <h5>Administradores</h5>
             <a href="{{route('users.index')}}"><h4><i class="fa fa-user"></i></h4></a>
           </div>
           <div class="stats-right">

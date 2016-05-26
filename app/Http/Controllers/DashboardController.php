@@ -18,8 +18,8 @@ class DashboardController extends Controller
     {
         $libros = Libro::count('id');
         $tesis = Grado::count('id');
-        $asistentes = User::where('cargo_id',1)->count();
-        $moderadores = User::where('cargo_id',3)->count();
+        $asistentes = User::where('cargo_id',2)->count();
+        $moderadores = User::where('cargo_id',1)->count();
 
         return view('principal')
             ->with('libros', $libros)

@@ -57,31 +57,33 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('libros/{id}/delete','LibroController@delete');
 
+    /* AREAS */
+        Route::resource('areas', 'AreaController');
+
+        Route::get('areas/{id}/delete','AreaController@delete');
+
+    /* AUTORES */
+        Route::resource('autores', 'AutorController');
+
+        Route::get('autores/{id}/delete','AutorController@delete');
+
+    /* EDITORIALES */
+        Route::resource('editoriales', 'EditorialController');
+
+        Route::get('editoriales/{id}/delete','EditorialController@delete');
+    /* ESPECIALIDADES */
+        Route::resource('especialidades', 'EspecialidadController');
+
+        Route::get('especialidades/{id}/delete','EspecialidadController@delete');
+
 
     Route::group(['middleware' => 'admin'], function () {
-        /* AREAS */
-            Route::resource('areas', 'AreaController');
-
-            Route::get('areas/{id}/delete','AreaController@delete');
-
-        /* AUTORES */
-            Route::resource('autores', 'AutorController');
-
-            Route::get('autores/{id}/delete','AutorController@delete');
 
         /* CARGOS */
             Route::resource('cargos', 'CargoController');
 
             Route::get('cargos/{id}/delete','CargoController@delete');
 
-        /* EDITORIALES */
-            Route::resource('editoriales', 'EditorialController');
-
-            Route::get('editoriales/{id}/delete','EditorialController@delete');
-        /* ESPECIALIDADES */
-            Route::resource('especialidades', 'EspecialidadController');
-
-            Route::get('especialidades/{id}/delete','EspecialidadController@delete');
         /* USER */
             Route::resource('users', 'UserController');
 

@@ -1,5 +1,5 @@
 @extends('base.main')
-@section('title', 'Libros')
+@section('title', 'Textos')
 @section('content')
 
 <!--outter-wp-->
@@ -8,12 +8,12 @@
     <div class="sub-heard-part">
       <ol class="breadcrumb m-b-0">
         <li><a href="{{ route('principal') }}">Principal</a></li>
-        <li class="active">Libros</li>
+        <li class="active">Textos</li>
       </ol>
     </div>
 
     <div class="graph-visual tables-main">
-      <h2 class="inner-tittle">Listado de Libros</h2>
+      <h2 class="inner-tittle">Listado de Textos</h2>
       @include('flash::message')
       <div class="graph">
         <div class="tables">

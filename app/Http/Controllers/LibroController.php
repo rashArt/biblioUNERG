@@ -44,6 +44,11 @@ class LibroController extends Controller
         $libro = new Libro();
         $libro->isbn = $request->isbn;
         $libro->titulo = $request->titulo;
+        $libro->clasificacion = $request->clasificacion;
+        $libro->pie = $request->pie;
+        $libro->nota = $request->nota;
+        $libro->serie = $request->serie;
+        $libro->fisica = $request->fisica;
         $libro->descripcion = $request->descripcion;
         $libro->editorial_id = $request->editorial_id;
         $libro->autor_id = $request->autor_id;
@@ -81,6 +86,11 @@ class LibroController extends Controller
         $libro = Libro::find($id);
         $libro->isbn = $request->isbn;
         $libro->titulo = $request->titulo;
+        $libro->clasificacion = $request->clasificacion;
+        $libro->pie = $request->pie;
+        $libro->nota = $request->nota;
+        $libro->serie = $request->serie;
+        $libro->fisica = $request->fisica;
         $libro->descripcion = $request->descripcion;
         $libro->editorial_id = $request->editorial_id;
         $libro->autor_id = $request->autor_id;

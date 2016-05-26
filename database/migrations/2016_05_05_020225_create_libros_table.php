@@ -16,6 +16,11 @@ class CreateLibrosTable extends Migration
             $table->increments('id');
             $table->string('isbn');
             $table->string('titulo');
+            $table->string('clasificacion');
+            $table->string('pie', 1000);
+            $table->string('nota', 1000);
+            $table->string('serie');
+            $table->string('fisica', 1000);
             $table->string('descripcion', 1000);
             $table->integer('autor_id')->unsigned();
             $table->integer('editorial_id')->unsigned();
