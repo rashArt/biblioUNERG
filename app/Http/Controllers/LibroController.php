@@ -13,6 +13,8 @@ use App\Libro;
 use App\Autor;
 use App\Editorial;
 use Laracasts\Flash\Flash;
+use Carbon\Carbon;
+
 
 class LibroController extends Controller
 {
@@ -110,5 +112,14 @@ class LibroController extends Controller
         Flash::error('Se ha eliminado el Libro exitosamente!');
 
         return redirect()->route('libros.index');
+    }
+
+    public function download()
+    {
+        $libros = Libro::orderBy('titulo','ASC')->get();
+        $fecha = Carbon::now();
+
+        $pdf = \PDF::loadView('libros.download', ['libros' => $libros]);
+        return $pdf->download('Total_Libros_'.$fecha->toDateString().'.pfd');
     }
 }

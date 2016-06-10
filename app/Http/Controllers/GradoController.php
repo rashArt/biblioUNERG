@@ -14,6 +14,7 @@ use App\User;
 use App\Area;
 use App\Especialidad;
 use Laracasts\Flash\Flash;
+use Carbon\Carbon;
 
 class GradoController extends Controller
 {
@@ -108,5 +109,14 @@ class GradoController extends Controller
         Flash::error('Se ha eliminado la Tesis exitosamente!');
 
         return redirect()->route('grados.index');
+    }
+
+    public function download()
+    {
+        $tesis = Grado::orderBy('titulo','ASC')->get();
+        $fecha = Carbon::now();
+
+        $pdf = \PDF::loadView('grados.download', ['tesis' => $tesis]);
+        return $pdf->download('Total_Grados_'.$fecha->toDateString().'.pfd');
     }
 }

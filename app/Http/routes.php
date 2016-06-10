@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
     );
 
     /* TESIS */
+        Route::get('grados/descarga','GradoController@download');
+
         Route::get('especialidad/{id}', 'GradoController@getSelect');
 
         Route::resource('grados', 'GradoController');
@@ -53,6 +55,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('grados/{id}/delete','GradoController@delete');
 
     /* LIBROS */
+        Route::get('libros/descarga','LibroController@download');
+
         Route::resource('libros', 'LibroController');
 
         Route::get('libros/{id}/delete','LibroController@delete');

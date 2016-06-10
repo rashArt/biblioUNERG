@@ -282,12 +282,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <ul id="-sub" >
               <li id="" ><a href="{{ route('grados.create') }}">Nuevo</a></li>
               <li id="" ><a href="{{ route('grados.index') }}">Listado</a></li>
+              <li id="" ><a href="{{ URL('grados/descarga') }}">Descarga</a></li>
             </ul>
           </li>
           <li id="" ><a href="#"><i class="fa fa-book"></i> <span> Texto</span> <span class="fa fa-angle-right" style="float: right"></span></a>
             <ul id="-sub" >
               <li id="" ><a href="{{ route('libros.create') }}">Nuevo</a></li>
               <li id="" ><a href="{{ route('libros.index') }}">Listado</a></li>
+              <li id="" ><a href="{{ URL('libros/descarga') }}">Descarga</a></li>
             </ul>
           </li>
           @if (Auth::user()->admin())
