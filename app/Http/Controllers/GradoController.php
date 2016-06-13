@@ -119,4 +119,13 @@ class GradoController extends Controller
         $pdf = \PDF::loadView('grados.download', ['tesis' => $tesis]);
         return $pdf->download('Total_Grados_'.$fecha->toDateString().'.pfd');
     }
+
+        public function descargarGrado($id)
+    {
+        $grado = Grado::find($id);
+        $fecha = Carbon::now();
+
+        $pdf = \PDF::loadView('grados.descargarGrado', ['grado' => $grado]);
+        return $pdf->download('Grado_'.$fecha->toDateString().'.pfd');
+    }
 }

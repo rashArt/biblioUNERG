@@ -122,4 +122,13 @@ class LibroController extends Controller
         $pdf = \PDF::loadView('libros.download', ['libros' => $libros]);
         return $pdf->download('Total_Libros_'.$fecha->toDateString().'.pfd');
     }
+
+    public function descargarLibro($id)
+    {
+        $libro = Libro::find($id);
+        $fecha = Carbon::now();
+
+        $pdf = \PDF::loadView('libros.descargarLibro', ['libro' => $libro]);
+        return $pdf->download('Libro_'.$fecha->toDateString().'.pfd');
+    }
 }

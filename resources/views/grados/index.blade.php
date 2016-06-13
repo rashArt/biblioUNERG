@@ -1,5 +1,10 @@
 @extends('base.main')
 @section('title', 'Tesis')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.css') }}">
+@stop
+
 @section('content')
 
   <!--outter-wp-->
@@ -18,7 +23,7 @@
       <div class="graph">
         <div class="tables">
           @if(count($tesis) > 0)
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="dataTables-example">
               <thead>
                 <tr>
                   <th>Titulo</th>
@@ -36,11 +41,14 @@
                   <td>
                     <div class="btn-group">
 
-                      <a href="{{ URL::to('grados/' . $grado->id ) }}" class="btn btn-success btn-xs"><i class="fa fa-eye"></i> Ver</a>
+                      <a href="{{ URL::to('grados/' . $grado->id ) }}" class="btn btn-success btn-xs"><i class="fa fa-eye"></i></a>
 
-                      <a href="{{ URL::to('grados/' . $grado->id . '/edit') }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar</a>
+                      <a href="{{ URL::to('grados/' . $grado->id . '/edit') }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i></a>
 
-                      <button type="button" class="btn btn-danger  btn-flat btn-xs" data-toggle="modal" data-target="#del{!!$grado->id!!}"><i class="fa fa-trash"></i> Eliminar</button>
+                      <button type="button" class="btn btn-danger  btn-flat btn-xs" data-toggle="modal" data-target="#del{!!$grado->id!!}"><i class="fa fa-trash"></i> </button>
+
+                      <a href="{{ URL::to('grados/descarga/' . $grado->id ) }}" class="btn btn-xs"><i class="fa fa-download"></i></a>
+
                       <!-- Modal -->
                       <div class="modal fade" id="del{!!$grado->id!!}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
@@ -78,4 +86,14 @@
 
   </div>
   <!--//outer-wp-->
+@stop
+
+@section('js')
+  <script src="{{ asset('js/jquery.dataTables.js') }}"></script>
+  <script src="{{ asset('js/dataTables.bootstrap.js') }}"></script>
+  <script>
+    $(document).ready(function() {
+      $('#dataTables-example').dataTable();
+    });
+  </script>
 @stop
